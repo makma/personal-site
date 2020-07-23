@@ -55,16 +55,7 @@ const sidebar = ({ isHomePage }) => {
         name {
           value
         }
-        rss {
-          value
-        }
-        telegram {
-          value
-        }
         twitter {
-          value
-        }
-        vk {
           value
         }
         avatar_image {
