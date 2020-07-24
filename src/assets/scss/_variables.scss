@@ -29,7 +29,7 @@ $typographic-link-s-font-color: $color-secondary;
 $typographic-leading: round(16 * ($typographic-root-font-size / 100) * $typographic-base-line-height);
 
 // Layout
-$layout-article-single-max-width: 945px;
+$layout-article-single-max-width: 1200px;
 $layout-article-single-width: $layout-article-single-max-width - 305px;
 
 $layout-width: 1070px;
