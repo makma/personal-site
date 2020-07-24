@@ -12,7 +12,7 @@ class ArticleTemplate extends React.Component {
     return (
       <Layout>
         <div>
-          <Helmet>
+          <Helmet htmlAttributes= {{lang: 'en'}} >
             <title>{`${article.elements.title.value} - ${title}`}</title>
             <meta name="description" content={article.elements.description.value} />
           </Helmet>

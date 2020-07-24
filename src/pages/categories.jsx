@@ -14,7 +14,10 @@ class CategoriesRoute extends React.Component {
     return (
       <Layout>
         <div>
-          <Helmet title={`All Categories - ${title}`} />
+          <Helmet
+            title={`All Categories - ${title}`}
+            htmlAttributes= {{lang: 'en'}}  
+          />
           <Sidebar />
           <div className="content">
             <div className="content__inner">

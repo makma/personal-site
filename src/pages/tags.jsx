@@ -14,7 +14,10 @@ class TagsRoute extends React.Component {
     return (
       <Layout>
         <div>
-          <Helmet title={`All Tags - ${title}`} />
+          <Helmet
+            title={`All Tags - ${title}`}
+            htmlAttributes= {{lang: 'en'}}
+          />
           <Sidebar />
           <div className="content">
             <div className="content__inner">

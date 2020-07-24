@@ -19,7 +19,7 @@ class ArticlesRoute extends React.Component {
     return (
       <Layout>
         <div>
-          <Helmet>
+          <Helmet htmlAttributes= {{lang: 'en'}} >
             <title>{title}</title>
             <meta name="description" content={subtitle} />
           </Helmet>
