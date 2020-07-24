@@ -26,6 +26,7 @@
         @include margin-bottom(.75);
     }
     &__meta {
+        padding-bottom: 10px;
         &-time {
             font-size: $typographic-small-font-size;
             color: $color-base;
