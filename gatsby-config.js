@@ -47,7 +47,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',
-      options: { trackingId: '' }, // add own google analytics trackingId
+      options: { trackingId: 'UA-39248355-12' }, // add own google analytics trackingId
     },
     {
       resolve: 'gatsby-plugin-google-fonts',
