@@ -53,7 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-      allKontentItemArticle(filter: {preferred_language: {eq: "en-US"}}) {
+      allKontentItemArticle(filter: {preferred_language: {eq: "en-US"}}, sort: {fields: elements___date___value, order: DESC}) {
         nodes {
           elements {
             slug {
