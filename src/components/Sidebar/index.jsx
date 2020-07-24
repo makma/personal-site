@@ -60,6 +60,7 @@ const sidebar = ({ isHomePage }) => {
         }
         avatar_image {
           value {
+            description
             url
           }
         }
@@ -73,6 +74,7 @@ const sidebar = ({ isHomePage }) => {
   const menu = data.kontentItemMenu
   const copyright = data.kontentItemSiteMetadata.elements.copyright.value
   const profilePic = data.kontentItemAuthor.elements.avatar_image.value[0].url
+  const profilePicAltText = data.kontentItemAuthor.elements.avatar_image.value[0].description
 
   return (
     <div className="sidebar">
@@ -85,7 +87,7 @@ const sidebar = ({ isHomePage }) => {
                 className="sidebar__author-photo"
                 width="75"
                 height="75"
-                alt={author.name}
+                alt={profilePicAltText}
               />
             </Link>
             {isHomePage ? (
