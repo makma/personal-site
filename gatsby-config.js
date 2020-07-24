@@ -58,6 +58,7 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-robots-txt',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
