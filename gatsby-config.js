@@ -16,13 +16,13 @@ module.exports = {
     {
       resolve: '@kentico/gatsby-source-kontent',
       options: {
-        projectId: process.env.KONTENT_PROJECT_ID, // Fill in your Project ID
+        projectId: '71f6c7d0-f57d-00dc-8e60-b98b6dede89b', // Fill in your Project ID
         // if false used authorization key for secured API
         usePreviewUrl: process.env.KONTENT_PREVIEW_ENABLED && process.env.KONTENT_PREVIEW_ENABLED.toLowerCase() === 'true',
         authorizationKey: process.env.KONTENT_PREVIEW_ENABLED && process.env.KONTENT_PREVIEW_ENABLED.toLowerCase() === 'true'
           ? process.env.KONTENT_PREVIEW_KEY
           : undefined,
-        languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(',').map(lang => lang.trim()),
+        languageCodenames: ['en-US'],
       },
     },
     {
