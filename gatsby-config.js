@@ -49,12 +49,6 @@ module.exports = {
       resolve: 'gatsby-plugin-google-analytics',
       options: { trackingId: 'UA-39248355-12' }, // add own google analytics trackingId
     },
-    {
-      resolve: 'gatsby-plugin-google-fonts',
-      options: {
-        fonts: ['roboto:400,400i,500,700'],
-      },
-    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
