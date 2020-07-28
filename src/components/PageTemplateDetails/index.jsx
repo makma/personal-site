@@ -1,11 +1,13 @@
 import React from 'react'
 import Sidebar from '../Sidebar'
+import Timeline from '../Timeline'
 import './style.scss'
 
 class PageTemplateDetails extends React.Component {
   render() {
     const pageTemplateData = this.props.data
     const kontentItemPage = pageTemplateData.kontentItemPage
+
 
     return (
       <div>
@@ -21,6 +23,7 @@ class PageTemplateDetails extends React.Component {
                   { __html: kontentItemPage.elements.description.value }
                 }
               />
+              {this.props.path === '/about/' ? <Timeline /> : null}
             </div>
           </div>
         </div>
