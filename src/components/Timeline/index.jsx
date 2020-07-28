@@ -37,7 +37,6 @@ const timeline = () => {
     }
   `)
 
-  debugger;
   const timelineItems = data.kontentItemTimeline.elements.timeline_items.value
 
   return (
@@ -49,7 +48,9 @@ const timeline = () => {
             timelineItems.map(item => (
               <div className="entry" key={item.system.codename}>
                 <div className="title big">{item.elements.period.value}</div>
-                <p>{item.elements.title.value}</p>
+                <div className="timeline_body">
+                  <p>{item.elements.title.value}</p>
+                </div>
               </div>
               ))
           }
