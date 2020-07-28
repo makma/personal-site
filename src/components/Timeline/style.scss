@@ -1,9 +1,8 @@
+@import "../../assets/scss/variables";
+
 .timeline {
-    position: relative;
-    background-color: pink;
-    min-height:100vh;
-    margin:0;
-    font-family: 'Droid Sans', sans-serif;
+    position: absolute;
+    background-color: $color-white;
     &:before {
       content: '';
       position: absolute;
@@ -12,17 +11,13 @@
       bottom:0px;
       transform:translateX(-50%);
       width:4px;
-      background-color:red;
+      background-color: $color-base;
     }
     .entries {
-      width:calc(100% - 80px);
-      max-width:800px;
-      margin:auto;
       position: relative;
       left:-5px;
       .entry {
         width:calc(50% - 80px);
-        float:left; 
         padding:20px;
         clear:both;
         text-align:right;
@@ -33,14 +28,14 @@
           font-size:32px;
           margin-bottom:12px;
           position: relative;
-          color: blue;
+          color: $color-base;
           &:before {
             content: '';
             position: absolute;
             width:8px;
             height:8px;
-            border:4px solid yellow;
-            background-color: violet;
+            border:4px solid $color-base;
+            background-color: $color-white;
             border-radius:100%;
             top:50%;
             transform:translateY(-50%);
@@ -54,7 +49,7 @@
           }
         }
         .timeline_body {
-          color:orange;
+          color:$color-base;
           p {
             line-height:1.4em;
           }

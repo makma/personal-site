@@ -42,7 +42,7 @@ const timeline = () => {
       <div className="timeline">
       <div className="entries">
         <div className="entry">
-          <div className="title">2011</div>
+          <div className="title big">2011</div>
           <div className="timeline_body">
             <p>
               Neque sunt voluptatibus repellat pariatur ut enim. Eveniet rerum
@@ -52,7 +52,7 @@ const timeline = () => {
           </div>
         </div>
         <div className="entry">
-          <div className="title">2012</div>
+          <div className="title big">2012</div>
           <div className="timeline_body">
             <p>
               Quo nobis cumque dolor iure voluptatem voluptatem alias soluta.
@@ -69,7 +69,7 @@ const timeline = () => {
           </div>
         </div>
         <div className="entry">
-          <div className="title">2014</div>
+          <div className="title big">2014</div>
           <div className="timeline_body">
             <p>
               Voluptatibus veniam ea reprehenderit atque. Reiciendis non laborum
@@ -80,7 +80,7 @@ const timeline = () => {
           </div>
         </div>
         <div className="entry">
-          <div className="title">2015</div>
+          <div className="title big">2015</div>
           <div className="timeline_body">
             <p>
               VAdipisci totam omnis cum et suscipit excepturi et excepturi.
@@ -102,7 +102,7 @@ const timeline = () => {
           </div>
         </div>
         <div className="entry">
-          <div className="title">2017</div>
+          <div className="title big">2017</div>
           <div className="timeline_body">
             <p>Qui facere eos aut suscipit doloremque quos...</p>
           </div>
