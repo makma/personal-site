@@ -12,6 +12,9 @@ const timeline = () => {
           timeline_items {
             value {
               ... on kontent_item_timeline_item {
+                system {
+                  codename
+                }
                 elements {
                   title {
                     value
@@ -25,6 +28,11 @@ const timeline = () => {
                   period {
                     value
                   }
+                  is_current {
+                    value {
+                      codename
+                    }
+                  }
                 }
               }
             }
@@ -34,80 +42,27 @@ const timeline = () => {
     }
   `)
 
-  console.log(JSON.stringify(data))
+  const timelineItems = data.kontentItemTimeline.elements.timeline_items.value
+
 
   return (
     <div>
       <h2>My journey</h2>
       <div className="timeline">
-      <div className="entries">
-        <div className="entry">
-          <div className="title big">2011</div>
-          <div className="timeline_body">
-            <p>
-              Neque sunt voluptatibus repellat pariatur ut enim. Eveniet rerum
-              suscipit eveniet amet dignissimos. Doloremque et distinctio quod
-              molestiae ut.
-            </p>
-          </div>
+        <div className="entries">
+          {timelineItems &&
+            timelineItems.map(item => (
+              <div className="entry" key={item.system.codename}>
+                <div className={item.elements.is_current.value[0].codename === "true" ? "title big" : "title small"}>{item.elements.period.value}</div>
+                <div className="timeline_body">
+                  <p className="timeline_body__title">{item.elements.title.value}</p>
+                  <p className="timeline_body__company">{item.elements.company.value}</p>
+                  <p className="timeline_body__location">{item.elements.location.value}</p>
+                </div>
+              </div>
+              ))
+          }
         </div>
-        <div className="entry">
-          <div className="title big">2012</div>
-          <div className="timeline_body">
-            <p>
-              Quo nobis cumque dolor iure voluptatem voluptatem alias soluta.
-            </p>
-          </div>
-        </div>
-        <div className="entry">
-          <div className="title big">2013</div>
-          <div className="timeline_body">
-            <p>
-              Rerum sit libero possimus amet excepturi. Exercitationem enim
-              dolores sunt praesentium dolorum praesentium.
-            </p>
-          </div>
-        </div>
-        <div className="entry">
-          <div className="title big">2014</div>
-          <div className="timeline_body">
-            <p>
-              Voluptatibus veniam ea reprehenderit atque. Reiciendis non laborum
-              adipisci ipsa pariatur omnis. Sed ipsam repudiandae velit. Omnis
-              libero nostrum aperiam nemo dolor ea eos eius. Esse a non itaque
-              quidem.
-            </p>
-          </div>
-        </div>
-        <div className="entry">
-          <div className="title big">2015</div>
-          <div className="timeline_body">
-            <p>
-              VAdipisci totam omnis cum et suscipit excepturi et excepturi.
-              Inventore sequi sit ut aliquid. Modi aut dolores dignissimos.
-            </p>
-            <p>
-              Delectus facere officia consequuntur molestias deserunt illo.
-              Placeat laudantium beatae natus excepturi ab nihil voluptates.
-            </p>
-          </div>
-        </div>
-        <div className="entry">
-          <div className="title big">2016</div>
-          <div className="timeline_body">
-            <p>
-              Impedit dolorem commodi explicabo fugit aut alias voluptatem.
-              Magnam earum rerum quae dicta quibusdam aliquam ut.
-            </p>
-          </div>
-        </div>
-        <div className="entry">
-          <div className="title big">2017</div>
-          <div className="timeline_body">
-            <p>Qui facere eos aut suscipit doloremque quos...</p>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
   )
