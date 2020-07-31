@@ -28,6 +28,11 @@ const timeline = () => {
                   period {
                     value
                   }
+                  is_current {
+                    value {
+                      codename
+                    }
+                  }
                 }
               }
             }
@@ -39,6 +44,7 @@ const timeline = () => {
 
   const timelineItems = data.kontentItemTimeline.elements.timeline_items.value
 
+
   return (
     <div>
       <h2>My journey</h2>
@@ -47,9 +53,11 @@ const timeline = () => {
           {timelineItems &&
             timelineItems.map(item => (
               <div className="entry" key={item.system.codename}>
-                <div className="title big">{item.elements.period.value}</div>
+                <div className={item.elements.is_current.value[0].codename === "true" ? "title big" : "title small"}>{item.elements.period.value}</div>
                 <div className="timeline_body">
-                  <p>{item.elements.title.value}</p>
+                  <p className="timeline_body__title">{item.elements.title.value}</p>
+                  <p className="timeline_body__company">{item.elements.company.value}</p>
+                  <p className="timeline_body__location">{item.elements.location.value}</p>
                 </div>
               </div>
               ))

@@ -1,7 +1,7 @@
 @import "../../assets/scss/variables";
 
 .timeline {
-    position: absolute;
+    position: relative;
     background-color: $color-white;
     &:before {
       content: '';
@@ -52,6 +52,21 @@
           color:$color-base;
           p {
             line-height:1.4em;
+            margin: 0.75rem 0;
+          }
+          &__title {
+              font-weight: bold;
+              font-size: 0.875rem;
+              color: $color-secondary;
+              text-transform: uppercase;
+          }
+          &__company {
+            font-weight: bold;
+            font-size: 1rem;
+            color: $color-primary;
+          }
+          &__location {
+            color: $color-gray;
           }
         }
         &:nth-child(2n) {
