@@ -31,7 +31,7 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
-    "gatsby-plugin-robots-txt": "^1.5.1",
+    "@kentico/gatsby-kontent-components": "^6.0.0",
     "@kentico/gatsby-source-kontent": "6.0.0",
     "babel-eslint": "^8.2.1",
     "bluebird": "^3.5.1",
@@ -48,6 +48,7 @@
     "gatsby-plugin-catch-links": "^2.0.4",
     "gatsby-plugin-google-analytics": "^2.0.6",
     "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sass": "^2.0.1",
     "gatsby-plugin-sharp": "^2.5.3",
     "gatsby-plugin-sitemap": "^2.0.1",
@@ -57,6 +58,6 @@
     "node-sass": "^4.14.1",
     "postcss-pxtorem": "^4.0.1",
     "prettier": "^1.10.2",
-    "prismjs": "^1.15.0"
+    "prismjs": "^1.21.0"
   }
 }

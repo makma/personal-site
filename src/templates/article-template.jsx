@@ -12,9 +12,12 @@ class ArticleTemplate extends React.Component {
     return (
       <Layout>
         <div>
-          <Helmet htmlAttributes= {{lang: 'en'}} >
+          <Helmet htmlAttributes={{ lang: 'en' }}>
             <title>{`${article.elements.title.value} - ${title}`}</title>
-            <meta name="description" content={article.elements.description.value} />
+            <meta
+              name="description"
+              content={article.elements.description.value}
+            />
           </Helmet>
           <ArticleTemplateDetails {...this.props} />
         </div>
@@ -27,7 +30,7 @@ export default ArticleTemplate
 
 export const pageQuery = graphql`
   query ArticleBySlug($slug: String!) {
-    kontentItemAuthor(system: {codename: {eq: "author"}}) {
+    kontentItemAuthor(system: { codename: { eq: "author" } }) {
       elements {
         bio {
           value
@@ -51,7 +54,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
+    kontentItemSiteMetadata(system: { codename: { eq: "site_metadata" } }) {
       elements {
         copyright {
           value
@@ -64,7 +67,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allKontentItemArticle(filter: {elements: {slug: {value: {eq: $slug}}}}, sort: {fields: elements___date___value, order: DESC}) {
+    allKontentItemArticle(
+      filter: { elements: { slug: { value: { eq: $slug } } } }
+      sort: { fields: elements___date___value, order: DESC }
+    ) {
       nodes {
         elements {
           category {
@@ -89,6 +95,23 @@ export const pageQuery = graphql`
           }
           content {
             value
+            modular_content {
+              system {
+                type
+                codename
+              }
+              ... on kontent_item_code_snippet {
+                id
+                elements {
+                  code {
+                    value
+                  }
+                  type {
+                    value
+                  }
+                }
+              }
+            }
           }
           slug {
             value
