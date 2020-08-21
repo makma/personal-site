@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import ArticleTemplateDetails from '../components/ArticleTemplateDetails'
 
-class ArticleTemplate extends React.Component {
+class ArticleListingTemplate extends React.Component {
   render() {
     const title = this.props.data.kontentItemSiteMetadata.elements.title.value
     const article = this.props.data.allKontentItemArticle.nodes[0]
@@ -26,7 +26,7 @@ class ArticleTemplate extends React.Component {
   }
 }
 
-export default ArticleTemplate
+export default ArticleListingTemplate
 
 export const pageQuery = graphql`
   query ArticleBySlug($slug: String!) {

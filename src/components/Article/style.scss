@@ -2,7 +2,7 @@
 @import "../../assets/scss/variables";
 
 .article {
-    @include margin-bottom(1.25);
+    @include margin-bottom(2.0);
     &:last-child {
         @include margin-bottom(.5);
     }
