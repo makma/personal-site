@@ -1,7 +1,7 @@
 const lost = require('lost')
 const pxtorem = require('postcss-pxtorem')
 
-const url = 'https://martinmakarsky.com/'
+const url = 'https://www.martinmakarsky.com/'
 
 require('dotenv').config()
 
