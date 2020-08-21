@@ -34,7 +34,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allKontentItemArticle(filter: {elements: {category: {value: {elemMatch: {system: {codename: {eq: $categoryCodename}}}}}}, preferred_language: {eq: "en-US"}}) {
+    allKontentItemArticle(
+      filter: {elements: {category: {value: {elemMatch: {system: {codename: {eq: $categoryCodename}}}}}}, preferred_language: {eq: "en-US"}}
+      sort: { fields: elements___date___value, order: DESC }
+      ) {
       nodes {
         system {
           codename
