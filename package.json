@@ -26,6 +26,7 @@
     "CMS"
   ],
   "dependencies": {
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0"
