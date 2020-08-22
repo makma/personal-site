@@ -55,6 +55,7 @@ module.exports = {
         fonts: ['roboto:400,400i,500,700'],	
       },	
     },
+    'gatsby-plugin-preact',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
