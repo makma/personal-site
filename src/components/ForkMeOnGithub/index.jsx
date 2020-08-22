@@ -88,6 +88,7 @@ const ForkMeOnGithub = props => {
       target="_blank"
       className="fork-me-on-github"
       aria-label={text}
+      rel="noopener"
       style={{ ...theStyles }}
     >
       {svg({isPride, colorBackground, colorOctocat, side})}
