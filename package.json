@@ -26,13 +26,13 @@
     "CMS"
   ],
   "dependencies": {
-    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-preact": "^4.0.9",
     "preact": "^10.4.7",
     "preact-render-to-string": "^5.1.10",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "roboto-npm-webfont": "^1.0.1"
   },
   "devDependencies": {
     "@kentico/gatsby-kontent-components": "^6.0.0",
