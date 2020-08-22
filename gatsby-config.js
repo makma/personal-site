@@ -53,7 +53,8 @@ module.exports = {
       resolve: 'gatsby-plugin-google-fonts',	
       options: {	
         fonts: ['roboto:400,400i,500,700'],	
-      },	
+      },
+      display: 'swap'
     },
     'gatsby-plugin-preact',
     'gatsby-plugin-sitemap',
