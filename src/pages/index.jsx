@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Article from '../components/Article'
 import Sidebar from '../components/Sidebar'
-import 'roboto-npm-webfont';
 
 class IndexRoute extends React.Component {
   render() {
