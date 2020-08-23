@@ -4,7 +4,7 @@
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 [![Live demo](https://img.shields.io/badge/-Live%20Demo-brightgreen.svg)](https://gatsby-starter-kontent-lumen.netlify.com/)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2adc83d6-9eba-45fc-b95c-c205e75d3189/deploy-status)](https://app.netlify.com/sites/gatsby-starter-kontent-lumen/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2b3f10b5-014a-496a-a5c7-036fcc0f6f87/deploy-status)](https://app.netlify.com/sites/martinmakarsky/deploys)
 
 Lumen is a minimal, lightweight and mobile-first starter for creating blogs using
 [Gatsby](https://github.com/gatsbyjs/gatsby).
