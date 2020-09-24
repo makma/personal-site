@@ -2,6 +2,11 @@
 @import "../../assets/scss/variables";
 
 .article-single {
+    & code {
+        color: $color-secondary;
+        background-color: $color-gray-bg;
+        border-radius: 4px;
+    } 
     &__inner {
         max-width: $layout-article-single-max-width;
         padding: 0 15px;
