@@ -62,7 +62,7 @@ class ArticleTemplateDetails extends React.Component {
                   return (
                     <pre>
                       <code
-                        className={`language-${linkedItem.elements.type.value}`}
+                        className={`language-${linkedItem.elements.type.value} formatted-code`}
                       >
                         {linkedItem.elements.code.value}
                       </code>
