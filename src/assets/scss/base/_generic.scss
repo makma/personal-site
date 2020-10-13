@@ -151,6 +151,19 @@ figcaption {
     }
 }
 
+.content-footer-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.all-articles-link {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #007BA7;
+    text-transform: uppercase;
+    padding: 1rem 0;
+}
+
 @include breakpoint-sm {
     figure.float-left,
     figure.float-right {

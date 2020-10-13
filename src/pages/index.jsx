@@ -4,16 +4,17 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Article from '../components/Article'
 import Sidebar from '../components/Sidebar'
+import { Link } from "gatsby"
 
 class IndexRoute extends React.Component {
   render() {
     const routeData = this.props
-    const items = []
+    const articles = []
     const title = routeData.data.kontentItemSiteMetadata.elements.title.value
     const subtitle = routeData.data.kontentItemSiteMetadata.elements.subtitle.value
-    const articles = routeData.data.allKontentItemArticle.nodes
-    articles.forEach(article => {
-      items.push(<Article data={article} key={article.elements.slug.value} />)
+    const articleItems = routeData.data.allKontentItemArticle.nodes
+    articleItems.forEach(article => {
+      articles.push(<Article data={article} key={article.elements.slug.value} />)
     })
 
     return (
@@ -25,7 +26,10 @@ class IndexRoute extends React.Component {
           </Helmet>
           <Sidebar isHomePage />
           <div className="content">
-            <div className="content__inner">{items}</div>
+            <div className="content__inner">{articles}</div>
+            <div className="content-footer-container">
+              <Link className="all-articles-link" to="/articles">→All articles</Link>
+            </div>
           </div>
         </div>
       </Layout>
@@ -50,6 +54,7 @@ export const pageQuery = graphql`
     allKontentItemArticle(
       filter: {preferred_language: {eq: "en-US"}}
       sort: { fields: elements___date___value, order: DESC }
+      limit: 3
       ) {
       nodes {
         elements {
