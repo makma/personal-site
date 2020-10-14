@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import * as _ from 'lodash'
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 
