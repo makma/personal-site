@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
+import * as _ from 'lodash'
 import './style.scss'
 
 class Article extends React.Component {
