@@ -73,7 +73,7 @@ const sidebar = ({ isHomePage }) => {
   const author = data.kontentItemAuthor
   const menu = data.kontentItemMenu
   const copyright = data.kontentItemSiteMetadata.elements.copyright.value
-  const profilePicUrl = `${data.kontentItemAuthor.elements.avatar_image.value[0].url}?w=100`
+  const profilePicUrl = `${data.kontentItemAuthor.elements.avatar_image.value[0].url}?w=225`
   const profilePicAltText = data.kontentItemAuthor.elements.avatar_image.value[0].description
 
   return (
