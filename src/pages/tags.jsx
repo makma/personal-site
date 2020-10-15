@@ -16,7 +16,7 @@ class TagsRoute extends React.Component {
         <div>
           <Helmet
             title={`All Tags - ${title}`}
-            htmlAttributes= {{lang: 'en'}}
+            htmlAttributes={{ lang: 'en' }}
           />
           <Sidebar />
           <div className="content">
@@ -32,7 +32,11 @@ class TagsRoute extends React.Component {
                             to={`/tags/${tag.elements.slug.value}/`}
                             className="tags__list-item-link"
                           >
-                            {tag.elements.title.value} ({_.get(tag.used_by_articles, 'length', 'N/A')})
+                            {tag.elements.title.value}
+                            {' '}
+                            (
+                            {_.get(tag.used_by_articles, 'length', 'N/A')}
+                            )
                           </Link>
                         </li>
                       ))}

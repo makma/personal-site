@@ -1,10 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Article from '../components/Article'
 import Sidebar from '../components/Sidebar'
-import { Link } from "gatsby"
 
 class IndexRoute extends React.Component {
   render() {
@@ -20,7 +19,7 @@ class IndexRoute extends React.Component {
     return (
       <Layout>
         <div>
-          <Helmet htmlAttributes= {{lang: 'en'}} >
+          <Helmet htmlAttributes={{ lang: 'en' }}>
             <title>{title}</title>
             <meta name="description" content={subtitle} />
           </Helmet>

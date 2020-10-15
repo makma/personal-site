@@ -8,7 +8,6 @@ class PageTemplateDetails extends React.Component {
     const pageTemplateData = this.props.data
     const kontentItemPage = pageTemplateData.kontentItemPage
 
-
     return (
       <div>
         <Sidebar />

@@ -1,10 +1,12 @@
 // Based on the awesome https://github.com/tholman/github-corners
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import './style.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import './style.scss'
 
-const svg = ({isPride, colorBackground, colorOctocat, side}) => {
+const svg = ({
+  isPride, colorBackground, colorOctocat, side,
+}) => {
   const prideGradient = () => (
     <svg style={{ width: '0', height: '0', position: 'absolute' }} aria-hidden="true" focusable="false">
       <linearGradient id="prideGradient" x2="1" y2="1">
@@ -22,15 +24,14 @@ const svg = ({isPride, colorBackground, colorOctocat, side}) => {
         <stop offset="100%" stopColor="#a000c0" />
       </linearGradient>
     </svg>
-  );
+  )
   const theColorBackground = () => {
     if (isPride) {
-      return 'url(#prideGradient) #f00000';
-    } else {
-      return colorBackground;
+      return 'url(#prideGradient) #f00000'
     }
+    return colorBackground
   }
-  const theSide = (side === 'left') ? { transform: 'scale(-1, 1)' } : {};
+  const theSide = (side === 'left') ? { transform: 'scale(-1, 1)' } : {}
   return (
     <>
       {isPride && prideGradient()}
@@ -39,13 +40,13 @@ const svg = ({isPride, colorBackground, colorOctocat, side}) => {
         height="80"
         viewBox="0 0 250 250"
         style={{
-          position: "fixed",
-          top: "0",
-          right: "0",
+          position: 'fixed',
+          top: '0',
+          right: '0',
           border: '0',
           color: colorOctocat,
           fill: theColorBackground(),
-          ...theSide
+          ...theSide,
         }}
         aria-hidden="true"
       >
@@ -56,7 +57,7 @@ const svg = ({isPride, colorBackground, colorOctocat, side}) => {
           d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
           fill="currentColor"
           style={{
-            transformOrigin: '130px 106px'
+            transformOrigin: '130px 106px',
           }}
           className="octo-arm"
         />
@@ -68,7 +69,7 @@ const svg = ({isPride, colorBackground, colorOctocat, side}) => {
       </svg>
     </>
   )
-};
+}
 
 const ForkMeOnGithub = props => {
   const {
@@ -79,9 +80,9 @@ const ForkMeOnGithub = props => {
     text = 'Fork me on GitHub',
     isDocumentation = false,
     isPride = false,
-  } = props;
-  const theSide = (side === 'left') ? { left: '0' } : { right: '0' };
-  const theStyles = isDocumentation ? { position: 'relative' } : { position: 'absolute', top: '0', ...theSide };
+  } = props
+  const theSide = (side === 'left') ? { left: '0' } : { right: '0' }
+  const theStyles = isDocumentation ? { position: 'relative' } : { position: 'absolute', top: '0', ...theSide }
   return (
     <a
       href={repo}
@@ -91,7 +92,9 @@ const ForkMeOnGithub = props => {
       rel="noopener"
       style={{ ...theStyles }}
     >
-      {svg({isPride, colorBackground, colorOctocat, side})}
+      {svg({
+        isPride, colorBackground, colorOctocat, side,
+      })}
     </a>
   )
 }
@@ -104,6 +107,6 @@ ForkMeOnGithub.propTypes = {
   repo: PropTypes.string.isRequired,
   side: PropTypes.oneOf(['left', 'right']),
   text: PropTypes.string,
-};
+}
 
-export default ForkMeOnGithub;
+export default ForkMeOnGithub

@@ -12,7 +12,7 @@ const linkUsedByContentItems = (
   parentTypeCodename,
   childTypeCodename,
   linkedElementCodename,
-  backReferenceName
+  backReferenceName,
 ) => {
   const {
     createResolvers,
@@ -36,9 +36,8 @@ const linkUsedByContentItems = (
             type: parentGraphqlType,
             firstOnly: false,
           })
-          return allParentTypeNodes.filter(item =>
-            item.preferred_language === source.preferred_language
-            && item.elements[linkedElementCodename].value.includes(source.system.codename)
+          return allParentTypeNodes.filter(item => item.preferred_language === source.preferred_language
+            && item.elements[linkedElementCodename].value.includes(source.system.codename),
           )
         },
       },

@@ -16,7 +16,7 @@ class CategoriesRoute extends React.Component {
         <div>
           <Helmet
             title={`All Categories - ${title}`}
-            htmlAttributes= {{lang: 'en'}}  
+            htmlAttributes={{ lang: 'en' }}
           />
           <Sidebar />
           <div className="content">
@@ -35,7 +35,11 @@ class CategoriesRoute extends React.Component {
                             to={`/categories/${category.elements.slug.value}/`}
                             className="categories__list-item-link"
                           >
-                            {category.elements.slug.value} ({_.get(category.used_by_articles, 'length', 'N/A')})
+                            {category.elements.slug.value}
+                            {' '}
+                            (
+                            {_.get(category.used_by_articles, 'length', 'N/A')}
+                            )
                           </Link>
                         </li>
                       ))}

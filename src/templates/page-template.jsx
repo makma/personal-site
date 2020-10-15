@@ -13,7 +13,7 @@ class PageTemplate extends React.Component {
     return (
       <Layout>
         <div>
-          <Helmet htmlAttributes= {{lang: 'en'}} >
+          <Helmet htmlAttributes={{ lang: 'en' }}>
             <title>{`${title} - ${subtitle}`}</title>
             <meta name="description" content={pageTemplateData.data.kontentItemPage.elements.meta_description.value} />
           </Helmet>

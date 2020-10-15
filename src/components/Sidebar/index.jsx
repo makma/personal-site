@@ -67,7 +67,7 @@ const sidebar = ({ isHomePage }) => {
       }
     }
   }
-`
+`,
   )
 
   const author = data.kontentItemAuthor

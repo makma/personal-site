@@ -31,8 +31,8 @@ class Links extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-               {/* lighthouse discernible name */}
-               &#8203;
+              {/* lighthouse discernible name */}
+              &#8203;
               <i className="icon-github" />
             </a>
           </li>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { dateInStringToLongMonthNumericYear, dateInStringToLongMonthNumericDayNumericYear } from './../../utils/dateUtils'
 import * as _ from 'lodash'
+import { dateInStringToLongMonthNumericYear, dateInStringToLongMonthNumericDayNumericYear } from '../../utils/dateUtils'
 import './style.scss'
 
 class Article extends React.Component {
