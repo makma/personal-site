@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { dateInStringToLongMonthNumericDayNumericYear } from '../../utils/dateUtils'
 import './style.scss'
 import { RichTextElement } from '@kentico/gatsby-kontent-components'
 import Prism from 'prismjs'
+import { dateInStringToLongMonthNumericDayNumericYear } from '../../utils/dateUtils'
 
 class ArticleTemplateDetails extends React.Component {
   componentDidMount() {

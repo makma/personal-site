@@ -73,13 +73,13 @@ const svg = ({
 
 const ForkMeOnGithub = props => {
   const {
-    colorBackground = '',
-    colorOctocat = '',
-    repo = '',
-    side = 'right',
-    text = 'Fork me on GitHub',
-    isDocumentation = false,
-    isPride = false,
+    colorBackground,
+    colorOctocat,
+    repo,
+    side,
+    text,
+    isDocumentation,
+    isPride,
   } = props
   const theSide = (side === 'left') ? { left: '0' } : { right: '0' }
   const theStyles = isDocumentation ? { position: 'relative' } : { position: 'absolute', top: '0', ...theSide }
@@ -87,9 +87,9 @@ const ForkMeOnGithub = props => {
     <a
       href={repo}
       target="_blank"
+      rel="noreferrer"
       className="fork-me-on-github"
       aria-label={text}
-      rel="noopener"
       style={{ ...theStyles }}
     >
       {svg({
@@ -97,6 +97,15 @@ const ForkMeOnGithub = props => {
       })}
     </a>
   )
+}
+
+ForkMeOnGithub.defaultProps = {
+  colorBackground: '',
+  colorOctocat: '',
+  side: 'right',
+  text: 'Fork me on GitHub',
+  isDocumentation: false,
+  isPride: false,
 }
 
 ForkMeOnGithub.propTypes = {

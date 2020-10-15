@@ -37,7 +37,7 @@ const linkUsedByContentItems = (
             firstOnly: false,
           })
           return allParentTypeNodes.filter(item => item.preferred_language === source.preferred_language
-            && item.elements[linkedElementCodename].value.includes(source.system.codename),
+              && item.elements[linkedElementCodename].value.includes(source.system.codename),
           )
         },
       },
