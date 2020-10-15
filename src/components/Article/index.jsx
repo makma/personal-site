@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import moment from 'moment'
+import { dateInStringToLongMonthNumericYear, dateInStringToLongMonthNumericDayNumericYear } from './../../utils/dateUtils'
 import * as _ from 'lodash'
 import './style.scss'
 
@@ -18,9 +18,9 @@ class Article extends React.Component {
         <div className="article__meta">
           <time
             className="article__meta-time"
-            dateTime={moment(date).format('MMMM D, YYYY')}
+            dateTime={dateInStringToLongMonthNumericDayNumericYear(date)}
           >
-            {moment(date).format('MMMM YYYY')}
+            {dateInStringToLongMonthNumericYear(date)}
           </time>
           <span className="article__meta-divider" />
           <span className="article__meta-category" key={categorySlug}>

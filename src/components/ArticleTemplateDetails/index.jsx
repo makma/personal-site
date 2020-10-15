@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import moment from 'moment'
+import { dateInStringToLongMonthNumericDayNumericYear } from './../../utils/dateUtils'
 import './style.scss'
 import { RichTextElement } from '@kentico/gatsby-kontent-components'
 import Prism from 'prismjs'
@@ -73,7 +73,7 @@ class ArticleTemplateDetails extends React.Component {
             </div>
             <div className="article-single__date">
               <em>
-                Published {moment(article.date.value).format('D MMM YYYY')}
+                Published {dateInStringToLongMonthNumericDayNumericYear(article.date.value)}
               </em>
             </div>
           </div>

@@ -54,6 +54,12 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-robots-txt',
+    // {
+    //  resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+    //  options: {
+    //   devMode: true,
+    //  }
+    // },
     {
       resolve: 'gatsby-plugin-sass',
       options: {
