@@ -2,8 +2,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 import './style.scss'
 import { RichTextElement } from '@kentico/gatsby-kontent-components'
-import Prism from 'prismjs'
 import { dateInStringToLongMonthNumericDayNumericYear } from '../../utils/dateUtils'
+import CodeHighlighter from '../CodeHighlighter/CodeHighlighter'
+
 
 class ArticleTemplateDetails extends React.Component {
   componentDidMount() {
@@ -12,7 +13,8 @@ class ArticleTemplateDetails extends React.Component {
 
   render() {
     const articleTemplateData = this.props
-    const subtitle = articleTemplateData.data.kontentItemSiteMetadata.elements.subtitle.value
+    const subtitle =
+      articleTemplateData.data.kontentItemSiteMetadata.elements.subtitle.value
     const author = articleTemplateData.data.kontentItemAuthor
     const article = this.props.data.allKontentItemArticle.nodes[0].elements
     const tags = article.tags.value
@@ -28,8 +30,8 @@ class ArticleTemplateDetails extends React.Component {
     const tagsBlock = (
       <div className="article-single__tags">
         <ul className="article-single__tags-list">
-          {tags
-            && tags.map(tag => (
+          {tags &&
+            tags.map((tag) => (
               <li
                 className="article-single__tags-list-item"
                 key={tag.system.codename}
@@ -57,22 +59,17 @@ class ArticleTemplateDetails extends React.Component {
               <RichTextElement
                 value={article.content.value}
                 linkedItems={article.content.modular_content}
-                resolveLinkedItem={linkedItem => (
-                  <pre>
-                    <code
-                      className={`language-${linkedItem.elements.type.value} formatted-code`}
-                    >
-                      {linkedItem.elements.code.value}
-                    </code>
-                  </pre>
+                resolveLinkedItem={(linkedItem) => (
+                  <CodeHighlighter language={linkedItem.elements.type.value} code={linkedItem.elements.code.value} />
                 )}
               />
             </div>
             <div className="article-single__date">
               <em>
-                Published
-                {' '}
-                {dateInStringToLongMonthNumericDayNumericYear(article.date.value)}
+                Published{' '}
+                {dateInStringToLongMonthNumericDayNumericYear(
+                  article.date.value
+                )}
               </em>
             </div>
           </div>
@@ -86,11 +83,7 @@ class ArticleTemplateDetails extends React.Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <br />
-                {' '}
-                <strong>{author.elements.name.value}</strong>
-                {' '}
-                on Twitter
+                <br /> <strong>{author.elements.name.value}</strong> on Twitter
               </a>
             </p>
           </div>
