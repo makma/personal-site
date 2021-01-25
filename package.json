@@ -8,7 +8,7 @@
   "private": false,
   "scripts": {
     "prepare": "node scripts/ncp.js .env.template .env -u",
-    "develop": "gatsby develop",
+    "develop": "gatsby clean && gatsby develop",
     "build": "gatsby build",
     "build:netlify": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "clean": "gatsby clean",

@@ -3,8 +3,9 @@ import { Link } from 'gatsby'
 import './style.scss'
 import { RichTextElement } from '@kentico/gatsby-kontent-components'
 import { dateInStringToLongMonthNumericDayNumericYear } from '../../utils/dateUtils'
-import CodeHighlighter from '../CodeHighlighter/CodeHighlighter'
-
+import CodeHighlighter from '../CodeHighlighter/index'
+import TwoColumnImages from '../TwoColumnImages/index'
+import ThreeColumnImages from '../ThreeColumnImages/index'
 
 class ArticleTemplateDetails extends React.Component {
   componentDidMount() {
@@ -59,9 +60,30 @@ class ArticleTemplateDetails extends React.Component {
               <RichTextElement
                 value={article.content.value}
                 linkedItems={article.content.modular_content}
-                resolveLinkedItem={(linkedItem) => (
-                  <CodeHighlighter language={linkedItem.elements.type.value} code={linkedItem.elements.code.value} />
-                )}
+                resolveLinkedItem={(linkedItem) => {
+                  switch (linkedItem.__typename) {
+                    case 'kontent_item_code_snippet': {
+                      return (
+                        <CodeHighlighter
+                          language={linkedItem.elements.type.value}
+                          code={linkedItem.elements.code.value}
+                        />
+                      )
+                    }
+                    case 'kontent_item_three_column_images': {
+                      const images = linkedItem.elements.images.value
+                      return (
+                        <ThreeColumnImages images={images}></ThreeColumnImages>
+                      )
+                    }
+                    case 'kontent_item_two_column_images': {
+                      const images = linkedItem.elements.images.value
+                      return <TwoColumnImages images={images}></TwoColumnImages>
+                    }
+                    default:
+                      return <div>Component not supported</div>
+                  }
+                }}
               />
             </div>
             <div className="article-single__date">
