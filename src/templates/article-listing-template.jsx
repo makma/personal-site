@@ -111,6 +111,26 @@ export const pageQuery = graphql`
                   }
                 }
               }
+              ... on kontent_item_three_column_images {
+                id
+                elements {
+                  images {
+                    value {
+                      url
+                    }
+                  }
+                }
+              }
+              ... on kontent_item_two_column_images {
+                id
+                elements {
+                  images {
+                    value {
+                      url
+                    }
+                  }
+                }
+              }
             }
           }
           slug {
