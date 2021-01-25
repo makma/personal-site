@@ -4,6 +4,7 @@ import './style.scss'
 import { RichTextElement } from '@kentico/gatsby-kontent-components'
 import { dateInStringToLongMonthNumericDayNumericYear } from '../../utils/dateUtils'
 import CodeHighlighter from '../CodeHighlighter/CodeHighlighter'
+import { forEach } from 'lodash'
 
 
 class ArticleTemplateDetails extends React.Component {
@@ -59,9 +60,25 @@ class ArticleTemplateDetails extends React.Component {
               <RichTextElement
                 value={article.content.value}
                 linkedItems={article.content.modular_content}
-                resolveLinkedItem={(linkedItem) => (
-                  <CodeHighlighter language={linkedItem.elements.type.value} code={linkedItem.elements.code.value} />
-                )}
+                resolveLinkedItem={linkedItem => {
+                  switch (linkedItem.__typename) {
+                    case 'kontent_item_code_snippet': {
+                      return <CodeHighlighter language={linkedItem.elements.type.value} code={linkedItem.elements.code.value} />;
+                    }
+                    case 'kontent_item_three_column_images': {
+                      console.log(JSON.stringify(linkedItem));
+                      return (
+                        <div style={"display: flex; flex-wrap: nowrap;"}>
+                            {linkedItem.elements.images.map(image => {
+                                return <img src={ image.src }></img>;
+                              })}
+                        </div>
+                      )
+                    }
+                    default:
+                      return <div>Component not supported</div>
+                  }
+                }}
               />
             </div>
             <div className="article-single__date">
