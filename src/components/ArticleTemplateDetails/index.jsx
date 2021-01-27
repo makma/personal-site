@@ -6,6 +6,7 @@ import { dateInStringToLongMonthNumericDayNumericYear } from '../../utils/dateUt
 import CodeHighlighter from '../CodeHighlighter/index'
 import TwoColumnImages from '../TwoColumnImages/index'
 import ThreeColumnImages from '../ThreeColumnImages/index'
+import Helmet from 'react-helmet'
 
 class ArticleTemplateDetails extends React.Component {
   componentDidMount() {
@@ -50,6 +51,10 @@ class ArticleTemplateDetails extends React.Component {
     )
 
     return (
+      <>
+      <Helmet>
+        <link rel="canonical" href={article.canonical_link.value} />
+      </Helmet>
       <div>
         {homeBlock}
         <div className="article-single">
@@ -111,6 +116,7 @@ class ArticleTemplateDetails extends React.Component {
           </div>
         </div>
       </div>
+      </>
     )
   }
 }

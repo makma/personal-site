@@ -93,6 +93,9 @@ export const pageQuery = graphql`
           description {
             value
           }
+          canonical_link {
+            value
+          }
           content {
             value
             modular_content {
