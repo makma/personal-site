@@ -3,6 +3,8 @@ import Prism from 'prismjs'
 import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-yaml'
+import 'prismjs/components/prism-csharp'
+import 'prismjs/components/prism-markdown'
 
 const CodeHighlighter = ({ language, code }) => {
   useEffect(() => {
