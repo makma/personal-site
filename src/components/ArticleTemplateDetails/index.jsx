@@ -52,70 +52,77 @@ class ArticleTemplateDetails extends React.Component {
 
     return (
       <>
-      <Helmet>
-        <link rel="canonical" href={article.canonical_link.value} />
-      </Helmet>
-      <div>
-        {homeBlock}
-        <div className="article-single">
-          <div className="article-single__inner">
-            <h1 className="article-single__title">{article.title.value}</h1>
-            <div />
-            <div className="article-single__body">
-              <RichTextElement
-                value={article.content.value}
-                linkedItems={article.content.modular_content}
-                resolveLinkedItem={(linkedItem) => {
-                  switch (linkedItem.__typename) {
-                    case 'kontent_item_code_snippet': {
-                      return (
-                        <CodeHighlighter
-                          language={linkedItem.elements.type.value}
-                          code={linkedItem.elements.code.value}
-                        />
-                      )
+        {article.canonical_link.value !== '' ? (
+          <Helmet>
+            <link rel="canonical" href={article.canonical_link.value} />
+          </Helmet>
+        ) : null}
+        <div>
+          {homeBlock}
+          <div className="article-single">
+            <div className="article-single__inner">
+              <h1 className="article-single__title">{article.title.value}</h1>
+              <div />
+              <div className="article-single__body">
+                <RichTextElement
+                  value={article.content.value}
+                  linkedItems={article.content.modular_content}
+                  resolveLinkedItem={(linkedItem) => {
+                    switch (linkedItem.__typename) {
+                      case 'kontent_item_code_snippet': {
+                        return (
+                          <CodeHighlighter
+                            language={linkedItem.elements.type.value}
+                            code={linkedItem.elements.code.value}
+                          />
+                        )
+                      }
+                      case 'kontent_item_three_column_images': {
+                        const images = linkedItem.elements.images.value
+                        return (
+                          <ThreeColumnImages
+                            images={images}
+                          ></ThreeColumnImages>
+                        )
+                      }
+                      case 'kontent_item_two_column_images': {
+                        const images = linkedItem.elements.images.value
+                        return (
+                          <TwoColumnImages images={images}></TwoColumnImages>
+                        )
+                      }
+                      default:
+                        return <div>Component not supported</div>
                     }
-                    case 'kontent_item_three_column_images': {
-                      const images = linkedItem.elements.images.value
-                      return (
-                        <ThreeColumnImages images={images}></ThreeColumnImages>
-                      )
-                    }
-                    case 'kontent_item_two_column_images': {
-                      const images = linkedItem.elements.images.value
-                      return <TwoColumnImages images={images}></TwoColumnImages>
-                    }
-                    default:
-                      return <div>Component not supported</div>
-                  }
-                }}
-              />
+                  }}
+                />
+              </div>
+              <div className="article-single__date">
+                <em>
+                  Published{' '}
+                  {dateInStringToLongMonthNumericDayNumericYear(
+                    article.date.value
+                  )}
+                </em>
+              </div>
             </div>
-            <div className="article-single__date">
-              <em>
-                Published{' '}
-                {dateInStringToLongMonthNumericDayNumericYear(
-                  article.date.value
-                )}
-              </em>
+            <div className="article-single__footer">
+              {tagsBlock}
+              <hr />
+              <p className="article-single__footer-text">
+                {subtitle}
+                <a
+                  href={`https://twitter.com/${author.elements.twitter.value}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <br /> <strong>{author.elements.name.value}</strong> on
+                  Twitter
+                </a>
+              </p>
             </div>
-          </div>
-          <div className="article-single__footer">
-            {tagsBlock}
-            <hr />
-            <p className="article-single__footer-text">
-              {subtitle}
-              <a
-                href={`https://twitter.com/${author.elements.twitter.value}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <br /> <strong>{author.elements.name.value}</strong> on Twitter
-              </a>
-            </p>
           </div>
         </div>
-      </div>
       </>
     )
   }
