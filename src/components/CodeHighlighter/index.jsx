@@ -5,6 +5,7 @@ import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-yaml'
 import 'prismjs/components/prism-csharp'
 import 'prismjs/components/prism-markdown'
+import 'prismjs/components/prism-json'
 
 const CodeHighlighter = ({ language, code }) => {
   useEffect(() => {
