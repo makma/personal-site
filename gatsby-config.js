@@ -54,18 +54,13 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-robots-txt',
-    // {
-    //  resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-    //  options: {
-    //   devMode: true,
-    //  }
-    // },
     {
       resolve: 'gatsby-plugin-sass',
       options: {
         postCssPlugins: [
           lost(),
           pxtorem({
+            precision: 8,
             rootValue: 16,
             unitPrecision: 5,
             propList: [
@@ -93,7 +88,6 @@ module.exports = {
             minPixelValue: 0,
           }),
         ],
-        precision: 8,
       },
     },
   ],
