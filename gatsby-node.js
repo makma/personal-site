@@ -3,6 +3,21 @@ const Promise = require('bluebird')
 const path = require('path')
 const slash = require('slash')
 
+exports.onCreateWebpackConfig = ({
+  actions,
+  getConfig,
+}) => {
+  // Disables mini-css warnings
+  const config = getConfig()
+  const miniCssExtractPlugin = config.plugins.find(
+    plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
+  )
+  if (miniCssExtractPlugin) {
+    miniCssExtractPlugin.options.ignoreOrder = true
+  }
+  actions.replaceWebpackConfig(config)
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
