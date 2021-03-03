@@ -103,6 +103,7 @@ export const pageQuery = graphql`
                 type
                 codename
               }
+              __typename
               ... on kontent_item_code_snippet {
                 id
                 elements {
