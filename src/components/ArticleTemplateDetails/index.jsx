@@ -92,7 +92,9 @@ class ArticleTemplateDetails extends React.Component {
                         )
                       }
                       default:
-                        return <div>Component not supported</div>
+                        {
+                          throw Error('Component not supported');
+                        }
                     }
                   }}
                 />

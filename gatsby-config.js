@@ -54,6 +54,7 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-robots-txt',
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
