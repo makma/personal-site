@@ -1,10 +1,10 @@
 import React from 'react'
 import './styles.scss'
 
-const ThreeColumnImages = ({ images }) => {
+const ThreeColumnImages = ({ images, width, height }) => {
   return (
     <div className="three-column-images">
-      {images.map((image, width, height) => {
+      {images.map((image) => {
         image.width = width;
         image.height = height;
         return <ImageElement image={image} />
