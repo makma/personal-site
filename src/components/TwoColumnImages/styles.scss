@@ -1,10 +1,5 @@
 .two-column-images {
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
-}
-
-.two-column-image {
-  width: 300px;
-  height: 100%;
-  padding: 4px 4px 4px 4px;
 }

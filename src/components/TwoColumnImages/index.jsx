@@ -2,11 +2,12 @@ import React from 'react'
 import { ImageElement } from '@kentico/gatsby-kontent-components'
 import './styles.scss'
 
-const TwoColumnImages = ({ images }) => {
+const TwoColumnImages = ({ images, width, height }) => {
   return (
     <div className="two-column-images">
       {images.map((image) => {
-        console.log(`Image: ${JSON.stringify(image)}`)
+        image.width = width;
+        image.height = height;
         return <ImageElement image={image} />
       })}
     </div>

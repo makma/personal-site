@@ -133,6 +133,12 @@ export const pageQuery = graphql`
                       url
                     }
                   }
+                  height {
+                    value
+                  }
+                  width {
+                    value
+                  }
                 }
               }
             }

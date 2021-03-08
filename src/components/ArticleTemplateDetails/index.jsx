@@ -79,16 +79,18 @@ class ArticleTemplateDetails extends React.Component {
                       }
                       case 'kontent_item_three_column_images': {
                         const images = linkedItem.elements.images.value
+                        const width = linkedItem.elements.width.value
+                        const height = linkedItem.elements.height.value
                         return (
-                          <ThreeColumnImages
-                            images={images}
-                          ></ThreeColumnImages>
+                          <ThreeColumnImages images={images} width={width} height={height} />
                         )
                       }
                       case 'kontent_item_two_column_images': {
                         const images = linkedItem.elements.images.value
+                        const width = linkedItem.elements.width.value
+                        const height = linkedItem.elements.height.value
                         return (
-                          <TwoColumnImages images={images}></TwoColumnImages>
+                          <TwoColumnImages images={images} width={width} height={height} />
                         )
                       }
                       default:

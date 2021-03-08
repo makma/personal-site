@@ -1,79 +1,81 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-
+import { ImageElement } from '@kentico/gatsby-kontent-components'
 import Menu from '../Menu'
 import Links from '../Links'
 import './style.scss'
 
 const sidebar = ({ isHomePage }) => {
   const data = useStaticQuery(graphql`
-  query SidebarQuery {
-    kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
-      elements {
-        copyright {
-          value
-        }
-        subtitle {
-          value
-        }
-        title {
-          value
+    query SidebarQuery {
+      kontentItemSiteMetadata(system: { codename: { eq: "site_metadata" } }) {
+        elements {
+          copyright {
+            value
+          }
+          subtitle {
+            value
+          }
+          title {
+            value
+          }
         }
       }
-    }
-    kontentItemMenu(system: {codename: {eq: "navigation_menu"}}) {
-      elements {
-        menu_items {
-          value {
-            ... on kontent_item_menu_item {
-              id
-              elements {
-                label {
-                  value
-                }
-                path {
-                  value
+      kontentItemMenu(system: { codename: { eq: "navigation_menu" } }) {
+        elements {
+          menu_items {
+            value {
+              ... on kontent_item_menu_item {
+                id
+                elements {
+                  label {
+                    value
+                  }
+                  path {
+                    value
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-    kontentItemAuthor(system: {codename: {eq: "author"}}) {
-      elements {
-        bio {
-          value
-        }
-        email {
-          value
-        }
-        github {
-          value
-        }
-        name {
-          value
-        }
-        twitter {
-          value
-        }
-        avatar_image {
-          value {
-            description
-            url
+      kontentItemAuthor(system: { codename: { eq: "author" } }) {
+        elements {
+          bio {
+            value
+          }
+          email {
+            value
+          }
+          github {
+            value
+          }
+          name {
+            value
+          }
+          twitter {
+            value
+          }
+          avatar_image {
+            value {
+              description
+              url
+            }
           }
         }
       }
     }
-  }
-`,
-  )
+  `)
 
   const author = data.kontentItemAuthor
   const menu = data.kontentItemMenu
   const copyright = data.kontentItemSiteMetadata.elements.copyright.value
-  const profilePicUrl = `${data.kontentItemAuthor.elements.avatar_image.value[0].url}?w=225`
-  const profilePicAltText = data.kontentItemAuthor.elements.avatar_image.value[0].description
+  const profilePicUrl =
+    data.kontentItemAuthor.elements.avatar_image.value[0].url
+  const profilePicture = { url: profilePicUrl, width: 75, height: 75 }
+  const profilePicAltText =
+    data.kontentItemAuthor.elements.avatar_image.value[0].description
 
   return (
     <div className="sidebar">
@@ -81,11 +83,9 @@ const sidebar = ({ isHomePage }) => {
         <div className="sidebar__author">
           <div>
             <Link to="/">
-              <img
-                src={profilePicUrl}
+              <ImageElement
                 className="sidebar__author-photo"
-                width="75"
-                height="75"
+                image={profilePicture}
                 alt={profilePicAltText}
               />
             </Link>
