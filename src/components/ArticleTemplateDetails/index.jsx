@@ -7,7 +7,7 @@ import CodeHighlighter from '../CodeHighlighter/index'
 import TwoColumnImages from '../TwoColumnImages/index'
 import ThreeColumnImages from '../ThreeColumnImages/index'
 import Helmet from 'react-helmet'
-import { ImageElement } from "@kentico/gatsby-kontent-components"
+import { ImageElement } from '@kentico/gatsby-kontent-components'
 
 class ArticleTemplateDetails extends React.Component {
   componentDidMount() {
@@ -69,10 +69,20 @@ class ArticleTemplateDetails extends React.Component {
                   value={article.content.value}
                   linkedItems={article.content.modular_content}
                   images={article.content.images}
-                  resolveImage={kontentImage => {
+                  resolveImage={(kontentImage) => {
                     const baseWidth = 895
-                    const image = { url: kontentImage.url, width: baseWidth, height: (kontentImage.height / (kontentImage.width / baseWidth)) }
-                    return <ImageElement image={image}/>
+                    const image = {
+                      url: kontentImage.url,
+                      width: baseWidth,
+                      height:
+                        kontentImage.height / (kontentImage.width / baseWidth),
+                    }
+                    return (
+                      <ImageElement
+                        image={image}
+                        aspectRatio={kontentImage.width / kontentImage.height}
+                      />
+                    )
                   }}
                   resolveLinkedItem={(linkedItem) => {
                     switch (linkedItem.__typename) {
@@ -89,7 +99,11 @@ class ArticleTemplateDetails extends React.Component {
                         const width = linkedItem.elements.width.value
                         const height = linkedItem.elements.height.value
                         return (
-                          <ThreeColumnImages images={images} width={width} height={height} />
+                          <ThreeColumnImages
+                            images={images}
+                            width={width}
+                            height={height}
+                          />
                         )
                       }
                       case 'kontent_item_two_column_images': {
@@ -97,13 +111,16 @@ class ArticleTemplateDetails extends React.Component {
                         const width = linkedItem.elements.width.value
                         const height = linkedItem.elements.height.value
                         return (
-                          <TwoColumnImages images={images} width={width} height={height} />
+                          <TwoColumnImages
+                            images={images}
+                            width={width}
+                            height={height}
+                          />
                         )
                       }
-                      default:
-                        {
-                          throw Error('Component not supported');
-                        }
+                      default: {
+                        throw Error('Component not supported')
+                      }
                     }
                   }}
                 />

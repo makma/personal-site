@@ -87,6 +87,7 @@ const sidebar = ({ isHomePage }) => {
                 className="sidebar__author-photo"
                 image={profileImage}
                 alt={profilePicAltText}
+                aspectRatio={1}
               />
             </Link>
             {isHomePage ? (
