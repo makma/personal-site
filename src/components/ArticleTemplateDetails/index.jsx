@@ -70,7 +70,6 @@ class ArticleTemplateDetails extends React.Component {
                   linkedItems={article.content.modular_content}
                   images={article.content.images}
                   resolveImage={kontentImage => {
-                    console.log(kontentImage)
                     const baseWidth = 895
                     const image = { url: kontentImage.url, width: baseWidth, height: (kontentImage.height / (kontentImage.width / baseWidth)) }
                     return <ImageElement image={image}/>
