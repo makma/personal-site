@@ -98,6 +98,12 @@ export const pageQuery = graphql`
           }
           content {
             value
+            images {
+              width
+              height
+              image_id
+              url
+            }
             modular_content {
               system {
                 type

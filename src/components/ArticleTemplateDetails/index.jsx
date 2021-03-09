@@ -7,6 +7,7 @@ import CodeHighlighter from '../CodeHighlighter/index'
 import TwoColumnImages from '../TwoColumnImages/index'
 import ThreeColumnImages from '../ThreeColumnImages/index'
 import Helmet from 'react-helmet'
+import { ImageElement } from "@kentico/gatsby-kontent-components"
 
 class ArticleTemplateDetails extends React.Component {
   componentDidMount() {
@@ -67,6 +68,13 @@ class ArticleTemplateDetails extends React.Component {
                 <RichTextElement
                   value={article.content.value}
                   linkedItems={article.content.modular_content}
+                  images={article.content.images}
+                  resolveImage={kontentImage => {
+                    console.log(kontentImage)
+                    const baseWidth = 895
+                    const image = { url: kontentImage.url, width: baseWidth, height: (kontentImage.height / (kontentImage.width / baseWidth)) }
+                    return <ImageElement image={image}/>
+                  }}
                   resolveLinkedItem={(linkedItem) => {
                     switch (linkedItem.__typename) {
                       case 'kontent_item_code_snippet': {

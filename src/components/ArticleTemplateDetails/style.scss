@@ -49,6 +49,12 @@
             margin-right: 15px;
             @include margin-bottom(1);
         }
+        & .gatsby-image-wrapper {
+            display: block;
+            max-width: $layout-article-single-width;
+            margin-left: auto;
+            margin-right: auto;
+        }
         & :not(div) {
             max-width: $layout-article-single-width;
             margin-left: auto;
