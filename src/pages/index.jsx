@@ -79,6 +79,12 @@ export const pageQuery = graphql`
           }
           content {
             value
+            images {
+              width
+              height
+              image_id
+              url
+            }
           }
           slug {
             value
