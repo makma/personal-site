@@ -37,8 +37,8 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "@kentico/gatsby-kontent-components": "7.0.0-beta.0",
-    "@kentico/gatsby-source-kontent": "7.0.0-beta.0",
+    "@kentico/gatsby-kontent-components": "7.0.0",
+    "@kentico/gatsby-source-kontent": "7.0.0",
     "babel-eslint": "^10.1.0",
     "bluebird": "^3.7.2",
     "cross-env": "^7.0.3",
