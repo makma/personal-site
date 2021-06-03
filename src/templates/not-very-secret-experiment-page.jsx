@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import CodeHighlighter from '../Components/CodeHighlighter/index'
+import CodeHighlighter from '../components/CodeHighlighter/index'
 import fpOS from '@fingerprintjs/fingerprintjs'
 import fpPro from '@fingerprintjs/fingerprintjs-pro'
 
