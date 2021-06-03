@@ -12,9 +12,9 @@ const NotVerySecretExperimentPage = () => {
   )
   const [resultPro, setResultPro] = useState('')
 
-  const fpOSPromise = fpOS.load()
-
   useEffect(() => {
+    const fpOSPromise = fpOS.load()
+
     (async () => {
       const fp = await fpOSPromise
       const result = await fp.get()
