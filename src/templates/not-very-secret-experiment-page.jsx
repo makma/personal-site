@@ -24,7 +24,7 @@ const NotVerySecretExperimentPage = () => {
 
     fpPro
       .load({token: 'tQUwQQOuG9TNwqc6F4I2', region: 'eu', endpoint: 'https://fp.martinmakarsky.com'})
-      .then((fp) => fp.get())
+      .then((fp) => fp.get({extendedResult: true}))
       .then((result) => {
         setVisitorIdPro(`Fingerprint by PRO is: ${result.visitorId}`)
         setResultPro(JSON.stringify(result, null, 2))
