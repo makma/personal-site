@@ -34,12 +34,12 @@ const NotVerySecretExperimentPage = () => {
   return (
     <>
       <div>
-        <h2>FingerprinJS open source</h2>
+        <h2>FingerprintJS open source</h2>
         <h3>{visitorIdOS}</h3>
         <CodeHighlighter language="json" code={resultOS} />
       </div>
       <div>
-        <h2>FingerprinJS PRO</h2>
+        <h2>FingerprintJS PRO</h2>
         <h3>{visitorIdPro}</h3>
         <CodeHighlighter language="json" code={resultPro} />
       </div>
