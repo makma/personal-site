@@ -26,6 +26,7 @@ exports.createPages = ({ graphql, actions }) => {
     const pageTemplate = path.resolve('./src/templates/page-template.jsx')
     const tagTemplate = path.resolve('./src/templates/tag-template.jsx')
     const categoryTemplate = path.resolve('./src/templates/category-template.jsx')
+    const notVerySecretExperimentPage = path.resolve('./src/templates/not-very-secret-experiment-page.jsx')
 
     graphql(`
     {
@@ -120,6 +121,11 @@ exports.createPages = ({ graphql, actions }) => {
           component: categoryTemplate,
           context: { categoryCodename, categoryTitle },
         })
+      })
+
+      createPage({
+        path: `/not-very-secret-experiment-page`,
+        component: notVerySecretExperimentPage,
       })
 
       resolve()

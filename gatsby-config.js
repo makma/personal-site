@@ -50,7 +50,10 @@ module.exports = {
       options: { trackingId: 'UA-39248355-12' }, // add own google analytics trackingId
     },
     'gatsby-plugin-preact',
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {exclude: ["/not-very-secret-experiment-page"]}
+    },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-robots-txt',
