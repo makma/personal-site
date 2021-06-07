@@ -12,10 +12,10 @@ const NotVerySecretExperimentPage = () => {
   )
   const [resultPro, setResultPro] = useState('')
 
-  const fpOSPromise = fpOS.load()
-
   useEffect(() => {
-    (async () => {
+    const fpOSPromise = fpOS.load()
+
+    ;(async () => {
       const fp = await fpOSPromise
       const result = await fp.get()
       setVisitorIdOS(`Fingerprint by OSS is: ${result.visitorId}`)
@@ -23,8 +23,12 @@ const NotVerySecretExperimentPage = () => {
     })()
 
     fpPro
-      .load({token: 'tQUwQQOuG9TNwqc6F4I2', region: 'eu', endpoint: 'https://fp.martinmakarsky.com'})
-      .then((fp) => fp.get({extendedResult: true}))
+      .load({
+        token: 'tQUwQQOuG9TNwqc6F4I2',
+        region: 'eu',
+        endpoint: 'https://fp.martinmakarsky.com',
+      })
+      .then((fp) => fp.get({ extendedResult: true }))
       .then((result) => {
         setVisitorIdPro(`Fingerprint by PRO is: ${result.visitorId}`)
         setResultPro(JSON.stringify(result, null, 2))
