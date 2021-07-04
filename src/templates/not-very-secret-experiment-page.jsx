@@ -53,8 +53,9 @@ const NotVerySecretExperimentPage = () => {
   return (
     <>
       <div>
-        <h2>botd</h2>
+        <h2>Raw botd</h2>
         <CodeHighlighter language="json" code={botdResult} />
+        <div>{botdResult}</div>
       </div>
       <div>
         <h2>FingerprintJS open source</h2>
