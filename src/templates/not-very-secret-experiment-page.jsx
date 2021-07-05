@@ -7,7 +7,8 @@ import Botd from '@fpjs-incubator/botd-agent'
 const NotVerySecretExperimentPage = () => {
   const [visitorIdOS, setVisitorIdOS] = useState('Waiting for visitorIdOS...')
   const [resultOS, setResultOS] = useState('')
-  const [botdResult, setBotdResult] = useState('')
+  const [botdDetectResult, setBotdDetectResult] = useState('')
+  const [botdGetResultResult, setBotdGetResultResult] = useState('')
 
   const [visitorIdPro, setVisitorIdPro] = useState(
     'Waiting for visitorIdPro...'
@@ -24,8 +25,11 @@ const NotVerySecretExperimentPage = () => {
     ;(async () => {
       // Get the bot detection result when you need it.
       const botd = await botdPromise
-      const result = await botd.detect()
-      setBotdResult(JSON.stringify(result, null, 2))
+      const botdDetectResult = await botd.detect({myMetadata1: "ahoj", myMetadata2: "hello"})
+      setBotdDetectResult(JSON.stringify(botdDetectResult, null, 2))
+
+      const botdGetResult = await botd.getResult();
+      setBotdGetResultResult(JSON.stringify(botdGetResult, null, 2))
     })()
 
     const fpOSPromise = fpOS.load()
@@ -53,9 +57,12 @@ const NotVerySecretExperimentPage = () => {
   return (
     <>
       <div>
-        <h2>Raw botd</h2>
-        <CodeHighlighter language="json" code={botdResult} />
-        <div>{botdResult}</div>
+        <h2>Botd Detect Results</h2>
+        <CodeHighlighter language="json" code={botdDetectResult} />
+      </div>
+      <div>
+        <h2>Botd GetResult Results</h2>
+        <CodeHighlighter language="json" code={botdGetResultResult} />
       </div>
       <div>
         <h2>FingerprintJS open source</h2>
